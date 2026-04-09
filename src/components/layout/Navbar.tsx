@@ -1,3 +1,5 @@
+import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
