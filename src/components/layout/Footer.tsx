@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { Logo } from '../ui/Logo';
 
 export default function Footer() {
   return (
@@ -8,12 +9,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <img src="/logo.png" alt="AbsolutData Ltd Logo" className="h-10 w-auto opacity-80" />
+            <div className="flex items-center gap-4 mb-6">
+              <Logo className="h-10 w-auto" mode="brand" />
               <span className="text-xl font-bold tracking-tight text-white">AbsolutData Ltd</span>
             </div>
             <p className="text-[var(--color-text-muted)] max-w-sm mb-6">
-              Strategic Technology. Trusted Execution. Measurable Impact. We partner with organisations to navigate complexity, mitigate risk, and unlock value through technology.
+              Strategic Technology. Trusted Execution. Measurable Impact.
             </p>
           </div>
 
@@ -46,13 +47,15 @@ export default function Footer() {
 
         </div>
         
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[var(--color-text-muted)] text-sm">
             © {new Date().getFullYear()} AbsolutData Ltd. All rights reserved.
           </p>
-          <p className="text-[var(--color-text-muted)] text-sm">
-            Company Reg No: 8935569
-          </p>
+          <div className="flex gap-6 text-sm">
+            <Link to="/privacy" className="text-[var(--color-text-muted)] hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="text-[var(--color-text-muted)] hover:text-white transition-colors">Terms & Conditions</Link>
+            <Link to="/imprint" className="text-[var(--color-text-muted)] hover:text-white transition-colors">Imprint</Link>
+          </div>
         </div>
       </div>
     </footer>

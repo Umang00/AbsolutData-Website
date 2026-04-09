@@ -1,11 +1,50 @@
+import { useState } from 'react';
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { Button } from '../components/ui/Components';
-import { Mail, MapPin, Phone, Briefcase } from 'lucide-react';
+import { Mail, MapPin, Phone, Briefcase, Send } from 'lucide-react';
+import { toast } from 'sonner';
 
 export default function Contact() {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      description: formData.get('description')
+    };
+
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) throw new Error(result.error || 'Failed to send message');
+
+      toast.success('Inquiry Sent Successfully', {
+        description: 'Thank you for reaching out. Our team will get back to you shortly.',
+      });
+      
+      (e.target as HTMLFormElement).reset();
+    } catch (error: any) {
+      toast.error('Submission Failed', {
+        description: error.message || 'There was an issue sending your message. Please try again later.',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <PageWrapper>
-      {/* Header */}
       <section className="pt-24 pb-16 bg-white/[0.02] border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-12">
           <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
@@ -17,7 +56,7 @@ export default function Contact() {
 
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             
             {/* Left Col: Info */}
             <div>
@@ -28,13 +67,13 @@ export default function Contact() {
               </p>
 
               <div className="space-y-8">
-                <div className="flex gap-4">
-                  <div className="glass-panel p-4 rounded-xl h-fit">
+                <div className="flex gap-5 items-start">
+                  <div className="glass-panel p-4 rounded-xl mt-1">
                     <MapPin className="text-[var(--color-primary)] w-6 h-6" />
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-white mb-2">Registered Address</h4>
-                    <p className="text-[var(--color-text-muted)]">
+                    <p className="text-[var(--color-text-muted)] leading-relaxed">
                       8 Clermont Place<br />
                       Romford, RM1 2EY<br />
                       United Kingdom
@@ -42,8 +81,8 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <div className="glass-panel p-4 rounded-xl h-fit">
+                <div className="flex gap-5 items-start">
+                  <div className="glass-panel p-4 rounded-xl mt-1">
                     <Mail className="text-[var(--color-primary)] w-6 h-6" />
                   </div>
                   <div>
@@ -54,8 +93,8 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <div className="glass-panel p-4 rounded-xl h-fit">
+                <div className="flex gap-5 items-start">
+                  <div className="glass-panel p-4 rounded-xl mt-1">
                     <Phone className="text-[var(--color-primary)] w-6 h-6" />
                   </div>
                   <div>
@@ -66,8 +105,8 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <div className="glass-panel p-4 rounded-xl h-fit">
+                <div className="flex gap-5 items-start">
+                  <div className="glass-panel p-4 rounded-xl mt-1">
                     <Briefcase className="text-[var(--color-primary)] w-6 h-6" />
                   </div>
                   <div>
@@ -80,24 +119,54 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Right Col: Mailto Form Mockup */}
-            <div className="glass-panel p-8 md:p-12 rounded-3xl h-fit">
-              <h3 className="text-2xl font-bold mb-6 text-white">Send an Inquiry</h3>
-              <p className="text-[var(--color-text-muted)] mb-8">
-                Reach out to us directly via email. Click the button below to open your default mail client and compose a message to our team.
-              </p>
+            {/* Right Col: Functional Form */}
+            <div className="glass-panel p-8 md:p-10 rounded-3xl w-full">
+              <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
+                <Send className="text-[var(--color-primary)]" />
+                Send an Inquiry
+              </h3>
               
-              <div className="bg-black/20 border border-[var(--color-primary)]/20 rounded-xl p-6 mb-8 text-center space-y-4">
-                <Mail className="w-12 h-12 text-[var(--color-primary)] mx-auto opacity-80" />
-                <h4 className="font-semibold text-white text-lg">tasnim.kumar@hotmail.com</h4>
-                <p className="text-sm text-gray-400">We typically respond within 24 hours.</p>
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required
+                    className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-transparent transition-all"
+                    placeholder="John Doe"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-transparent transition-all"
+                    placeholder="john@example.com"
+                  />
+                </div>
 
-              <a href="mailto:tasnim.kumar@hotmail.com?subject=Strategic%20Technology%20Inquiry" className="block w-full">
-                <Button className="w-full h-14 text-lg">
-                  Open Email Client
+                <div>
+                  <label htmlFor="description" className="block text-sm font-medium text-gray-300 mb-2">How can we help?</label>
+                  <textarea 
+                    id="description" 
+                    name="description" 
+                    required
+                    rows={5}
+                    className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-transparent transition-all resize-none"
+                    placeholder="Describe your inquiry..."
+                  />
+                </div>
+
+                <Button type="submit" disabled={loading} className="w-full h-14 text-lg">
+                  {loading ? 'Sending...' : 'Submit Inquiry'}
                 </Button>
-              </a>
+              </form>
             </div>
 
           </div>

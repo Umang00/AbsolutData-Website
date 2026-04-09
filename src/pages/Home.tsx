@@ -1,7 +1,7 @@
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { Button, Card } from '../components/ui/Components';
 import { motion } from 'framer-motion';
-import { Shield, Scale, Server, Code, ArrowRight } from 'lucide-react';
+import { Shield, Scale, Server, Code, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -38,27 +38,33 @@ export default function Home() {
   return (
     <PageWrapper>
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
-        {/* Abstract background gradient */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--color-primary)]/20 rounded-full blur-[120px] -z-10" />
+      <section className="relative pt-24 pb-32 overflow-hidden flex items-center min-h-[85vh]">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/hero_bg.png" 
+            alt="Abstract Technology Background" 
+            className="w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-bg-dark)]/40 via-transparent to-[var(--color-bg-dark)] mix-blend-multiply" />
+        </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8"
+            className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight drop-shadow-2xl"
           >
             Strategic <span className="text-[var(--color-primary)]">Technology.</span><br />
             Trusted <span className="text-[var(--color-primary)]">Execution.</span><br />
-            Measurable <span className="text-white">Impact.</span>
+            Measurable <span className="text-[var(--color-primary)]">Impact.</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-[var(--color-text-muted)] max-w-3xl mx-auto mb-12"
+            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 drop-shadow-md font-light"
           >
             We partner with organisations to navigate complexity, mitigate risk, and unlock value through technology.
           </motion.p>
@@ -67,15 +73,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-6 justify-center"
           >
             <Link to="/services">
-              <Button className="w-full sm:w-auto gap-2">
-                Explore Services <ArrowRight size={18} />
+              <Button className="w-full sm:w-auto gap-2 h-14 text-lg px-8">
+                Explore Services <ArrowRight size={20} />
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" className="w-full sm:w-auto">
+              <Button variant="outline" className="w-full sm:w-auto h-14 text-lg px-8">
                 Start a Conversation
               </Button>
             </Link>
@@ -84,9 +90,10 @@ export default function Home() {
       </section>
 
       {/* Intro Section */}
-      <section className="py-24 border-y border-white/5 bg-white/[0.02]">
+      <section className="py-24 border-b border-white/5 bg-white/[0.02]">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-2xl md:text-3xl leading-relaxed text-gray-300">
+          <h2 className="text-sm uppercase tracking-[0.3em] text-[var(--color-primary)] font-bold mb-6">Strategic Foundation</h2>
+          <p className="text-2xl md:text-3xl leading-relaxed text-gray-200 font-light">
             As a UK-based advisory and technology firm, we operate at the intersection of strategy, legal frameworks, and engineering excellence—delivering solutions that are not only technically sound, but commercially and operationally aligned.
           </p>
         </div>
@@ -113,51 +120,43 @@ export default function Home() {
       </section>
 
       {/* Why Us Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-[var(--color-primary)]/10 to-transparent -z-10 blur-3xl pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2">
-              <h2 className="text-4xl font-bold mb-6">Why AbsolutData Ltd?</h2>
-              <p className="text-xl text-[var(--color-primary)] italic mb-10 border-l-4 border-[var(--color-primary)] pl-6 py-2 glass-panel">
-                "We don't just implement technology—we enable strategic advantage."
-              </p>
-              
-              <div className="space-y-8">
-                {whyUs.map((item, i) => (
-                  <motion.div 
-                    key={item.title}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex gap-4"
-                  >
-                    <div className="mt-1 w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" />
-                    <div>
-                      <h4 className="text-lg font-bold text-white">{item.title}</h4>
-                      <p className="text-[var(--color-text-muted)]">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="lg:w-1/2 w-full">
-              <div className="glass-panel p-8 md:p-12 rounded-3xl relative">
-                <div className="absolute -top-6 -left-6 text-6xl text-[var(--color-primary)]/20">"</div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Ready to accelerate your transformation?</h3>
-                <p className="text-center text-gray-400 mb-8">
-                  Whether you are exploring a strategic initiative, addressing operational challenges, or seeking specialist expertise, we are ready to support you.
-                </p>
-                <div className="flex justify-center">
-                  <Link to="/contact">
-                    <Button>Get in Touch</Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
+      <section className="py-24 relative overflow-hidden bg-black/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-center">
+          <h2 className="text-4xl font-bold mb-4">Why AbsolutData Ltd?</h2>
+          <p className="text-xl text-[var(--color-text-muted)] italic mb-16 max-w-2xl mx-auto">
+            "We don't just implement technology—we enable strategic advantage."
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            {whyUs.map((item, i) => (
+              <motion.div 
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="glass-panel p-8 rounded-2xl flex flex-col items-center text-center gap-4"
+              >
+                <CheckCircle2 className="w-10 h-10 text-[var(--color-primary)]" />
+                <h4 className="text-lg font-bold text-white">{item.title}</h4>
+                <p className="text-[var(--color-text-muted)] text-sm">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 border-t border-white/5">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="glass-panel p-10 md:p-16 rounded-[2rem] border border-[var(--color-primary)]/20 shadow-[0_0_50px_rgba(0,212,255,0.05)]">
+            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to accelerate your transformation?</h3>
+            <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+              Whether you are exploring a strategic initiative, addressing operational challenges, or seeking specialist expertise, we are ready to support you.
+            </p>
+            <Link to="/contact">
+              <Button className="h-14 px-10 text-lg">Contact Our Experts</Button>
+            </Link>
           </div>
         </div>
       </section>

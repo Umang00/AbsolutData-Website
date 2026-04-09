@@ -36,7 +36,7 @@ export default function About() {
               At AbsolutData Ltd, we believe that successful organisations are those that can adapt, scale, and innovate with confidence.
             </p>
             <p className="text-[var(--color-text-muted)] text-lg mb-8">
-              Since 2017, we have supported businesses across sectors in addressing complex IT challenges—bringing together advisory insight, legal rigour, and engineering capability under one unified approach.
+              Since 2017, we have supported businesses across sectors in addressing complex IT challenges. We do this by bringing together advisory insight, legal rigour, and engineering capability under one unified approach.
             </p>
           </div>
         </div>
@@ -73,8 +73,8 @@ export default function About() {
               <p className="text-gray-300 mb-6">
                 Our team comprises highly skilled professionals with deep domain expertise across consulting, software engineering, IT operations, and legal frameworks.
               </p>
-              <p className="text-gray-300">
-                We operate with a collaborative model—bringing together the right expertise for each engagement to ensure depth, agility, and precision.
+              <p className="text-gray-300 mb-6">
+                We operate with a collaborative model. We bring together the right expertise for each engagement to ensure depth, agility, and precision.
               </p>
             </div>
             

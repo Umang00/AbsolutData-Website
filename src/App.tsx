@@ -8,6 +8,10 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import Imprint from './pages/Imprint';
+import ScrollToTop from './components/layout/ScrollToTop';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -19,6 +23,9 @@ function AnimatedRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/imprint" element={<Imprint />} />
       </Routes>
     </AnimatePresence>
   );
@@ -27,6 +34,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow pt-20">

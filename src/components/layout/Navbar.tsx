@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Logo } from '../ui/Logo';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,19 +29,19 @@ export default function Navbar() {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'glass-panel bg-opacity-80 py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="AbsolutData Ltd Logo" className="h-10 w-auto" />
+        <div className="flex justify-between items-center h-12">
+          <Link to="/" className="flex items-center gap-4">
+            <Logo className="h-10 w-auto" mode="brand" />
             <span className="text-xl font-bold tracking-tight text-white hidden sm:block">AbsolutData Ltd</span>
           </Link>
           
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-8 items-center">
+          <div className="hidden md:flex space-x-10 items-center">
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-[var(--color-primary)] relative ${isActive(link.path) ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-main)]'}`}
+                className={`text-base font-medium py-2 transition-colors hover:text-[var(--color-primary)] relative ${isActive(link.path) ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-main)]'}`}
               >
                 {link.name}
                 {isActive(link.path) && (
