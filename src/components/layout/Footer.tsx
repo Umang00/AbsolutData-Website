@@ -9,7 +9,7 @@ export default function Footer() {
           
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-4 mb-6">
-              <img src="/logo.png" alt="AbsolutData Ltd Logo" className="h-12 w-12 object-contain mix-blend-screen opacity-90" />
+              <img src="/logo.png" alt="AbsolutData Ltd Logo" className="h-12 w-12 object-contain opacity-90" />
               <span className="text-xl font-bold tracking-tight text-white">AbsolutData Ltd</span>
             </div>
             <p className="text-[var(--color-text-muted)] max-w-sm mb-6 mt-2">
