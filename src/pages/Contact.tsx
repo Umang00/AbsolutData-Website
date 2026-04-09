@@ -164,7 +164,7 @@ export default function Contact() {
                   </div>
 
                   <Button type="submit" disabled={loading} className="w-full h-14 text-lg mt-4 flex items-center justify-center gap-3">
-                    {loading ? 'Initiating Dispatch...' : 'Submit Transmission'}
+                    {loading ? 'Initiating Dispatch...' : 'Submit'}
                     {!loading && <Send size={20} />}
                   </Button>
                 </form>
