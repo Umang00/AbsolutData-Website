@@ -35,7 +35,6 @@ export default function Navbar() {
               alt="AbsolutData Ltd Logo" 
               className="h-10 w-auto opacity-90 group-hover:opacity-100 transition-opacity" 
             />
-            <span className="text-xl font-bold tracking-tight text-white hidden sm:block">AbsolutData Ltd</span>
           </Link>
           
           {/* Desktop Nav */}

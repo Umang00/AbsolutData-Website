@@ -60,7 +60,7 @@ export default function Services() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-[var(--color-text-muted)] max-w-3xl mx-auto font-light"
+            className="text-xl md:text-2xl text-white max-w-3xl mx-auto font-light"
           >
             Operating at the intersection of strategy, legal frameworks, and engineering excellence.
           </motion.p>
@@ -78,7 +78,7 @@ export default function Services() {
                 <img 
                   src={svc.image} 
                   alt={svc.title} 
-                  className="w-full aspect-video object-contain transition-transform duration-700 group-hover:scale-105" 
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
                 />
               </div>
               

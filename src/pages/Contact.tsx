@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { Button } from '../components/ui/Components';
-import { Mail, MapPin, Phone, Briefcase, Send } from 'lucide-react';
+import { Mail, Phone, Send } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 
@@ -70,7 +70,7 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-[var(--color-text-muted)] max-w-3xl mx-auto font-light"
+            className="text-xl md:text-2xl text-white max-w-3xl mx-auto font-light"
           >
             Direct access to our senior advisory and engineering leadership to discuss your strategic imperatives.
           </motion.p>
@@ -83,41 +83,9 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             {/* Left Col: Info */}
-            <div className="col-span-1 lg:col-span-5 space-y-12 pr-0 lg:pr-8">
+            <div className="col-span-1 lg:col-span-4 space-y-12 pr-0 lg:pr-4">
               
-              <div>
-                <h2 className="text-3xl font-bold mb-6 text-white">Global Headquarters</h2>
-                <div className="space-y-8">
-                  <div className="flex gap-5 items-start group">
-                    <div className="glass-panel p-4 rounded-xl mt-1 transition-colors group-hover:border-[var(--color-primary)]/50">
-                      <MapPin className="text-[var(--color-primary)] w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-white mb-2">Registered Address</h4>
-                      <p className="text-gray-400 leading-relaxed font-light">
-                        AbsolutData Ltd<br />
-                        8 Clermont Place<br />
-                        Romford, RM1 2EY<br />
-                        United Kingdom
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-5 items-start group">
-                    <div className="glass-panel p-4 rounded-xl mt-1 transition-colors group-hover:border-[var(--color-primary)]/50">
-                      <Briefcase className="text-[var(--color-primary)] w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-white mb-2">Corporate Information</h4>
-                      <p className="text-gray-400 font-light">
-                        Company Reg No: <span className="text-white">8935569</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-12 border-t border-white/5">
+              <div className="pt-2">
                 <h2 className="text-3xl font-bold mb-6 text-white">Direct Channels</h2>
                 <div className="space-y-8">
                   <div className="flex gap-5 items-center group">

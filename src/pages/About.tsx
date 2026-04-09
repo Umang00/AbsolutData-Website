@@ -28,7 +28,7 @@ export default function About() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-[var(--color-text-muted)] max-w-3xl mx-auto font-light"
+            className="text-xl md:text-2xl text-white max-w-3xl mx-auto font-light"
           >
             Engineering competitive advantage through rigorous technology advisory and precise execution.
           </motion.p>
@@ -84,8 +84,8 @@ export default function About() {
       {/* Leadership / History Footer Note */}
       <section className="py-24 border-t border-white/5 bg-white/[0.01]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 className="text-2xl text-white font-bold mb-6">Established 2017</h3>
-            <p className="text-lg text-gray-400 font-light leading-relaxed">
+            <h3 className="text-2xl text-white font-bold mb-6">Established In 2017</h3>
+            <p className="text-lg text-white font-light leading-relaxed">
               Based in the United Kingdom, AbsolutData Ltd has quietly powered the digital infrastructure and risk management strategies for complex organizations requiring zero-compromise partnerships.
             </p>
         </div>
