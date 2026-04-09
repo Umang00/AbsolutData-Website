@@ -33,7 +33,7 @@ export default function Navbar() {
             <img 
               src="/logo.png" 
               alt="AbsolutData Ltd Logo" 
-              className="h-12 w-12 object-contain opacity-90 group-hover:opacity-100 transition-opacity" 
+              className="h-9 w-auto md:h-10 object-contain opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-[0_0_8px_rgba(0,255,255,0.3)]" 
             />
             <span className="text-xl font-bold tracking-tight text-white hidden sm:block">AbsolutData Ltd</span>
           </Link>
