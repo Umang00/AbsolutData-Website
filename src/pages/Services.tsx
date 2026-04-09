@@ -1,5 +1,6 @@
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Services() {
   const services = [
@@ -35,29 +36,49 @@ export default function Services() {
 
   return (
     <PageWrapper>
-      {/* Header */}
-      <section className="pt-24 pb-16 bg-white/[0.02] border-b border-white/5 relative overflow-hidden">
-        <div className="absolute left-0 top-0 w-full h-full bg-gradient-to-b from-[var(--color-primary)]/5 to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-12 relative z-10">
-          <h1 className="text-5xl font-bold mb-6">Our Core Capabilities</h1>
-          <p className="text-xl text-[var(--color-text-muted)] max-w-3xl mx-auto font-light">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-40 overflow-hidden flex items-center min-h-[60vh]">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/hero_services_bg.png" 
+            alt="Abstract Technology Architecture" 
+            className="w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-bg-dark)]/80 via-[var(--color-bg-dark)]/40 to-[var(--color-bg-dark)] mix-blend-multiply" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-white"
+          >
+            Capabilities Arsenal
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl md:text-2xl text-[var(--color-text-muted)] max-w-3xl mx-auto font-light"
+          >
             Operating at the intersection of strategy, legal frameworks, and engineering excellence.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Services List with Images */}
-      <section className="py-24">
+      <section className="py-24 -mt-16 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           {services.map((svc, i) => (
             <div key={svc.id} className={`flex flex-col lg:flex-row gap-12 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
               
-              <div className="w-full lg:w-1/2 relative group rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-                <div className="absolute inset-0 bg-[var(--color-primary)]/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10" />
+              <div className="w-full lg:w-1/2 relative group rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black/40">
+                <div className="absolute inset-0 bg-[var(--color-primary)]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10" />
                 <img 
                   src={svc.image} 
                   alt={svc.title} 
-                  className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105" 
+                  className="w-full aspect-video object-contain transition-transform duration-700 group-hover:scale-105" 
                 />
               </div>
               
