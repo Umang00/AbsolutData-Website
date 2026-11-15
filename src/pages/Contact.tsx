@@ -35,9 +35,10 @@ export default function Contact() {
       });
       
       (e.target as HTMLFormElement).reset();
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'There was an issue sending your message. Please try again later.';
       toast.error('Submission Failed', {
-        description: error.message || 'There was an issue sending your message. Please try again later.',
+        description: errorMessage,
       });
     } finally {
       setLoading(false);
@@ -94,8 +95,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-[var(--color-text-muted)] uppercase tracking-wider mb-1">Email</h4>
-                      <a href="mailto:tasnim.kumar@hotmail.com" className="text-lg text-white hover:text-[var(--color-primary)] transition-colors">
-                        tasnim.kumar@hotmail.com
+                      <a href="mailto:Tasnim.Kumar@absolutdata.co.uk" className="text-lg text-white hover:text-[var(--color-primary)] transition-colors">
+                        Tasnim.Kumar@absolutdata.co.uk
                       </a>
                     </div>
                   </div>

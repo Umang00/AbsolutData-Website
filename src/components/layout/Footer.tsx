@@ -48,7 +48,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-[var(--color-text-muted)]">
                 <Mail size={20} className="text-[var(--color-primary)] shrink-0" />
-                <a href="mailto:tasnim.kumar@hotmail.com" className="text-sm hover:text-[var(--color-primary)] transition-colors">tasnim.kumar@hotmail.com</a>
+                <a href="mailto:Tasnim.Kumar@absolutdata.co.uk" className="text-sm hover:text-[var(--color-primary)] transition-colors">Tasnim.Kumar@absolutdata.co.uk</a>
               </li>
             </ul>
           </div>

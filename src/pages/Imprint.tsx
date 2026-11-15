@@ -43,7 +43,7 @@ export default function Imprint() {
               <div className="space-y-4 text-gray-300 text-sm">
                 <div>
                   <strong className="block text-gray-400 mb-1 tracking-wider uppercase text-xs">Primary Email</strong>
-                  <a href="mailto:tasnim.kumar@hotmail.com" className="text-[var(--color-primary)] hover:underline">tasnim.kumar@hotmail.com</a>
+                  <a href="mailto:Tasnim.Kumar@absolutdata.co.uk" className="text-[var(--color-primary)] hover:underline">Tasnim.Kumar@absolutdata.co.uk</a>
                 </div>
                 <div>
                   <strong className="block text-gray-400 mb-1 tracking-wider uppercase text-xs">Telephone</strong>

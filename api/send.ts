@@ -2,13 +2,28 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req: any, res: any) {
+interface ApiRequest {
+  method?: string;
+  body?: {
+    name?: string;
+    email?: string;
+    description?: string;
+  };
+}
+
+interface ApiResponse {
+  status: (code: number) => {
+    json: (body: unknown) => void;
+  };
+}
+
+export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
   try {
-    const { name, email, description } = req.body;
+    const { name, email, description } = req.body || {};
 
     if (!name || !email || !description) {
       return res.status(400).json({ error: 'Missing required fields' });
@@ -16,7 +31,7 @@ export default async function handler(req: any, res: any) {
 
     const data = await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'tasnim.kumar@hotmail.com',
+      to: 'Tasnim.Kumar@absolutdata.co.uk',
       subject: `New Inquiry from ${name} via Website`,
       html: `
         <h2>New Website Inquiry</h2>
@@ -32,7 +47,8 @@ export default async function handler(req: any, res: any) {
     }
 
     return res.status(200).json({ success: true, data });
-  } catch (error: any) {
-    return res.status(500).json({ error: error.message || 'Internal Server Error' });
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'Internal Server Error';
+    return res.status(500).json({ error: errorMessage });
   }
 }

@@ -38,7 +38,7 @@ export default function Privacy() {
                 8 Clermont Place<br />
                 Romford, RM1 2EY<br />
                 United Kingdom<br />
-                Email: tasnim.kumar@hotmail.com
+                Email: Tasnim.Kumar@absolutdata.co.uk
               </div>
             </section>
 
@@ -126,7 +126,7 @@ export default function Privacy() {
               </ul>
               <p className="mt-4">
                 To exercise any of these rights, please contact the Data Controller directly at{" "}
-                <a href="mailto:tasnim.kumar@hotmail.com" className="text-[var(--color-primary)] hover:underline">tasnim.kumar@hotmail.com</a>.
+                <a href="mailto:Tasnim.Kumar@absolutdata.co.uk" className="text-[var(--color-primary)] hover:underline">Tasnim.Kumar@absolutdata.co.uk</a>.
               </p>
             </section>
 

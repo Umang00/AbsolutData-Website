@@ -85,7 +85,7 @@ export default function Terms() {
                 AbsolutData Ltd<br />
                 8 Clermont Place<br />
                 Romford, RM1 2EY<br />
-                Email: tasnim.kumar@hotmail.com
+                Email: Tasnim.Kumar@absolutdata.co.uk
               </div>
             </section>
 
